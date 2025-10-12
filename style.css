@@ -1,0 +1,215 @@
+/* ---- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS ---- */
+:root {
+    --color-background: #121212;
+    --color-primary: #00FFFF;
+    --color-text: #FFFFFF;
+    --color-card-bg: rgba(24, 26, 32, 0.7);
+    --font-title: 'Poppins', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --container-width: 1200px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--color-background); color: var(--color-text); line-height: 1.6; }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+h2 { font-family: var(--font-title); font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--color-primary); }
+
+/* ---- CABEÇALHO ---- */
+.main-header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(10px); padding: 15px 0; z-index: 1000; }
+.main-header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-title); font-size: 28px; font-weight: 700; color: var(--color-primary); text-decoration: none; }
+.main-nav ul { list-style: none; display: flex; gap: 25px; }
+.main-nav a { color: var(--color-text); text-decoration: none; font-weight: 700; transition: color 0.3s ease; }
+.main-nav a:hover { color: var(--color-primary); }
+
+/* ---- SECÇÃO HERO (BANNER) ---- */
+.hero-section { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.video-background video { width: 100%; height: 100%; object-fit: cover; }
+.hero-section::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); }
+.hero-content { z-index: 1; padding: 20px; }
+.hero-content h1 { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--color-primary); }
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+.btn-primary { background-color: var(--color-primary); color: var(--color-background); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: transform 0.3s ease; border: none; cursor: pointer; }
+.btn-primary:hover { transform: scale(1.05); }
+
+/* ---- SECÇÃO "EM ALTA" ---- */
+.trending-section { padding: 80px 0; }
+.trending-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card { background: var(--color-card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-10px); }
+.card img { width: 100%; height: 180px; object-fit: cover; }
+.card-content { padding: 20px; }
+.card .category { display: inline-block; background: var(--color-primary); color: var(--color-background); padding: 3px 8px; font-size: 0.8rem; font-weight: 700; border-radius: 3px; margin-bottom: 10px; }
+.card h3 { font-family: var(--font-title); font-size: 1.2rem; margin-bottom: 15px; }
+.card a { color: var(--color-primary); text-decoration: none; font-weight: 700; }
+
+/* ---- SECÇÃO MÚSICAS (HOME) ---- */
+.music-section { padding: 80px 0; }
+.music-list { list-style: none; max-width: 800px; margin: 0 auto; }
+.music-list li { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); flex-wrap: wrap; gap: 10px; }
+.music-info .artist { font-weight: 700; display: block; font-size: 1.1rem; }
+.music-info .title { color: #aaa; }
+.music-actions { display: flex; gap: 15px; }
+.btn-download, .btn-stream { text-decoration: none; padding: 8px 15px; border: 1px solid var(--color-primary); border-radius: 5px; transition: all 0.3s ease; font-weight: 700;}
+.btn-download { background: transparent; color: var(--color-primary); }
+.btn-stream { background: var(--color-primary); color: var(--color-background); }
+.btn-download:hover { background: var(--color-primary); color: var(--color-background); }
+.see-more-link { text-align: center; margin-top: 30px; }
+.see-more-link a { color: var(--color-primary); text-decoration: none; font-weight: 700; }
+
+/* ---- SECÇÃO DE EVENTOS (HOME) ---- */
+.events-section { padding: 80px 0; background-color: #0a0a0a; }
+.events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+.event-card { background: var(--color-card-bg); border-radius: 10px; overflow: hidden; display: flex; align-items: center; border: 1px solid rgba(255, 255, 255, 0.1); }
+.event-card img { width: 120px; height: 100%; object-fit: cover; }
+.event-info { padding: 20px; }
+.event-date { font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); display: block; }
+.event-info h3 { font-family: var(--font-title); font-size: 1.2rem; margin: 5px 0; }
+.event-location { font-size: 0.9rem; color: #aaa; margin-bottom: 15px; }
+.btn-secondary { text-decoration: none; padding: 6px 12px; border: 1px solid var(--color-primary); color: var(--color-primary); border-radius: 5px; font-weight: 700; transition: all 0.3s ease; }
+.btn-secondary:hover { background-color: var(--color-primary); color: var(--color-background); }
+
+/* ---- RODAPÉ ---- */
+.main-footer { background: #0a0a0a; text-align: center; padding: 40px 0; }
+.social-links a { color: var(--color-text); text-decoration: none; margin: 0 15px; font-size: 1.2rem; }
+.social-links a:hover { color: var(--color-primary); }
+.footer-nav { margin: 20px 0; }
+.footer-nav a { color: #aaa; text-decoration: none; margin: 0 10px; }
+.footer-nav a:hover { color: var(--color-text); }
+.copyright { color: #777; font-size: 0.9rem; }
+
+/* ---- ESTILOS PARA PÁGINAS INTERNAS ---- */
+.page-content { padding-top: 120px; padding-bottom: 80px; }
+.page-title { font-size: 3rem; color: var(--color-primary); text-align: center; margin-bottom: 10px; }
+.page-subtitle { text-align: center; font-size: 1.1rem; color: #aaa; margin-bottom: 60px; }
+
+/* ---- PÁGINA DE PODCASTS ---- */
+.filter-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+.filter-btn { background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
+.filter-btn:hover, .filter-btn.active { background: var(--color-primary); color: var(--color-background); }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.video-card { background: var(--color-card-bg); border-radius: 10px; padding: 15px; }
+.video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 15px; border-radius: 5px; }
+.video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video-card h3 { font-family: var(--font-title); font-size: 1.1rem; }
+.video-card .video-category { font-size: 0.9rem; color: var(--color-primary); }
+
+/* ---- PÁGINA DE MÚSICAS ---- */
+.legal-notice { background: rgba(0, 255, 255, 0.1); border-left: 4px solid var(--color-primary); padding: 15px; margin-bottom: 40px; border-radius: 5px; }
+.music-table { width: 100%; border-collapse: collapse; }
+.music-table th, .music-table td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.music-table th { font-family: var(--font-title); color: var(--color-primary); }
+.btn-table-download, .btn-table-stream { text-decoration: none; padding: 6px 12px; border-radius: 4px; font-size: 0.9rem; margin-right: 10px; font-weight: 700; display: inline-block; text-align: center; min-width: 90px; }
+.btn-table-download { border: 1px solid var(--color-primary); color: var(--color-primary); }
+.btn-table-stream { background: var(--color-primary); color: var(--color-background); border: 1px solid var(--color-primary); }
+
+/* ---- PÁGINA DE CONTATO ---- */
+.contact-form-container { max-width: 700px; margin: 0 auto; background: var(--color-card-bg); padding: 40px; border-radius: 10px; }
+.contact-form-container h3 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; color: #aaa; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; background: #101216; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; color: var(--color-text); font-family: var(--font-body); font-size: 1rem; }
+form .btn-primary { width: 100%; padding: 15px; font-size: 1.1rem; }
+
+/* ---- CÓDIGO ADICIONAL PARA RESPONSIVIDADE ---- */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    z-index: 101; /* Garante que fica por cima de outros elementos */
+}
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Começa escondido fora da tela */
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #181a20;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 100;
+    }
+    .main-nav.active {
+        right: 0; /* Mostra o menu */
+    }
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .main-nav ul a {
+        font-size: 1.5rem;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+/* ---- PÁGINA DE DOWNLOAD DEDICADA ---- */
+.download-page {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.download-cover {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-page h1 {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.download-page h2 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.download-page p {
+    color: #aaa;
+}
+
+.ad-container {
+    margin: 40px auto;
+    min-height: 100px; /* Altura mínima para o espaço do anúncio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-final-download {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
