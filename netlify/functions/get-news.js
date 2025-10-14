@@ -1,12 +1,13 @@
-// Ficheiro: netlify/functions/get-news.js (Código Final e Melhorado)
+// Ficheiro: netlify/functions/get-news.js (Código Final de Diagnóstico)
 
 const Parser = require('rss-parser');
 const parser = new Parser();
 
-// A nossa função antiga para procurar dentro do texto (agora é o nosso Plano B)
+// Função com um "scanner" de imagens mais potente (regex melhorado)
 function extractImageUrlFromContent(content) {
     if (!content) return null;
-    const match = content.match(/<img[^>]+src="([^">]+)"/);
+    // Este regex procura por src="...", src='...' e lida com espaços extras.
+    const match = content.match(/<img[^>]+src\s*=\s*['"]([^'"]+)['"]/);
     return match ? match[1] : null;
 }
 
@@ -16,27 +17,33 @@ exports.handler = async function(event, context) {
     try {
         let feed = await parser.parseURL(FEED_URL);
 
-        const processedItems = feed.items.map(item => {
+        const processedItems = feed.items.map((item, index) => {
             let imageUrl = null;
 
-            // LÓGICA MELHORADA: Procura em dois sítios!
-            // 1. Procura primeiro na "caixa especial" (enclosure), que é o mais fiável.
-            if (item.enclosure && item.enclosure.url && item.enclosure.type.startsWith('image')) {
+            // Lógica melhorada:
+            if (item.enclosure && item.enclosure.url) {
                 imageUrl = item.enclosure.url;
-            } 
-            // 2. Se não encontrar, usa o nosso Plano B e procura dentro do texto.
-            else {
+            } else {
                 imageUrl = extractImageUrlFromContent(item['content:encoded'] || item.content);
             }
 
-            // Linha de diagnóstico (vamos mantê-la por agora)
+            // ================== SUPER DIAGNÓSTICO ==================
+            // Para a primeira notícia da lista, vamos imprimir todo o conteúdo que o robô está a ver.
+            // Isto vai mostrar-nos todos os campos disponíveis.
+            if (index === 0) {
+                console.log("--- INÍCIO DO DIAGNÓSTICO DO PRIMEIRO ITEM ---");
+                console.log(JSON.stringify(item, null, 2));
+                console.log("--- FIM DO DIAGNÓSTICO ---");
+            }
+            // ========================================================
+            
             console.log(`Notícia: "${item.title}" >> URL da Imagem Encontrada: ${imageUrl}`);
 
             return {
                 title: item.title,
                 link: item.link,
                 isoDate: item.isoDate,
-                imageUrl: imageUrl, // O URL da imagem que encontrámos
+                imageUrl: imageUrl,
                 contentSnippet: item.contentSnippet ? item.contentSnippet.substring(0, 150) + '...' : ''
             };
         });
