@@ -213,3 +213,41 @@ form .btn-primary { width: 100%; padding: 15px; font-size: 1.1rem; }
     padding: 15px 40px;
     font-size: 1.2rem;
 }
+/* ---- SECÇÃO DE NOTÍCIAS AUTOMÁTICAS ---- */
+.news-feed-section {
+    padding: 80px 0;
+}
+
+#news-feed-container .news-item {
+    background: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--color-primary);
+}
+
+#news-feed-container .news-item h3 {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#news-feed-container .news-item h3 a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#news-feed-container .news-item h3 a:hover {
+    color: var(--color-primary);
+}
+
+#news-feed-container .news-item p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#news-feed-container .news-item small {
+    color: #888;
+}
