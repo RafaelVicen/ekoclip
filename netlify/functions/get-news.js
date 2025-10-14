@@ -1,16 +1,12 @@
-// Ficheiro: netlify/functions/get-news.js (Código Melhorado)
+// Ficheiro: netlify/functions/get-news.js (Código Final e Melhorado)
 
 const Parser = require('rss-parser');
 const parser = new Parser();
 
-// Função melhorada para extrair a primeira imagem do conteúdo HTML
-function extractImageUrl(content) {
+// A nossa função antiga para procurar dentro do texto (agora é o nosso Plano B)
+function extractImageUrlFromContent(content) {
     if (!content) return null;
-    
-    // Tenta encontrar uma tag <img> com o atributo src="..."
     const match = content.match(/<img[^>]+src="([^">]+)"/);
-    
-    // Se encontrar, devolve o link da imagem. Se não, devolve null.
     return match ? match[1] : null;
 }
 
@@ -20,11 +16,20 @@ exports.handler = async function(event, context) {
     try {
         let feed = await parser.parseURL(FEED_URL);
 
-        // Processa cada notícia para extrair os dados que queremos
         const processedItems = feed.items.map(item => {
-            const imageUrl = extractImageUrl(item['content:encoded'] || item.content);
-            
-            // LINHA DE DIAGNÓSTICO: Isto vai aparecer nos logs do Netlify
+            let imageUrl = null;
+
+            // LÓGICA MELHORADA: Procura em dois sítios!
+            // 1. Procura primeiro na "caixa especial" (enclosure), que é o mais fiável.
+            if (item.enclosure && item.enclosure.url && item.enclosure.type.startsWith('image')) {
+                imageUrl = item.enclosure.url;
+            } 
+            // 2. Se não encontrar, usa o nosso Plano B e procura dentro do texto.
+            else {
+                imageUrl = extractImageUrlFromContent(item['content:encoded'] || item.content);
+            }
+
+            // Linha de diagnóstico (vamos mantê-la por agora)
             console.log(`Notícia: "${item.title}" >> URL da Imagem Encontrada: ${imageUrl}`);
 
             return {
