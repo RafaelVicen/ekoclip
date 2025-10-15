@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2985352769426087" crossorigin="anonymous"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googlesyndication.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N5PGM4G6');</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - EkoClip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <noscript><iframe src="https://www.googlesyndication.com/ns.html?id=GTM-N5PGM4G6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">EkoClip</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="podcasts.html">Podcasts</a></li>
+                    <li><a href="musicas.html">Músicas</a></li>
+                    <li><a href="livros.html">Livraria</a></li>
+                    <li><a href="contato.html">Eventos & Contato</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+        </div>
+        <div class="discount-timer-banner" id="discount-timer-banner" style="display: none;">
+    <div class="container">
+        🔥 Oferta especial por tempo limitado! O seu desconto termina em: <span id="countdown-timer">--:--:--</span>
+    </div>
+</div>
+    </header>
+
+    <main class="page-content">
+        <section class="container">
+            <h2 class="page-title">Finalizar a Compra</h2>
+            <p class="page-subtitle">Siga os 2 passos abaixo para receber o seu ebook.</p>
+
+            <div class="order-layout">
+                <div class="payment-instructions">
+                    <h3>Passo 1: Efetue o Pagamento</h3>
+                    
+                    <div class="payment-total" id="ebook-price-display">
+                        </div>
+                    
+                    <h4>Opção A: Multicaixa Express</h4>
+                    <p>Envie o valor do ebook para o número:<br><strong>9XX XXX XXX</strong></p>
+                    
+                    <h4>Opção B: Transferência Bancária</h4>
+                    <p><strong>Banco:</strong> [Nome do Seu Banco]<br>
+                       <strong>IBAN:</strong> [O Seu Número de IBAN]</p>
+                    
+                    <hr style="margin: 30px 0; border-color: rgba(255,255,255,0.1);">
+
+                    <p><strong>Importante:</strong> Guarde o comprovativo do pagamento. Será necessário para validar a sua compra.</p>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Passo 2: Submeta os Seus Dados</h3>
+                    <form action="https://formspree.io/f/xkgqkver" method="POST">
+                        <div class="form-group">
+                            <label for="name">Seu Nome Completo</label>
+                            <input type="text" id="name" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu Melhor Email (para receber o ebook)</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <input type="hidden" name="ebook_selecionado" id="ebook-selecionado">
+                        <input type="hidden" name="_next" value="https://ekoclip.netlify.app/obrigado-final.html">
+
+                        <button type="submit" class="btn-primary">Submeter Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="social-links"><a href="https://youtube.com/@ek0-clip?si=sifghtNcYBbmYhMi" target="_blank">YouTube</a><a href="https://www.instagram.com/ek0clip/" target="_blank">Instagram</a><a href="https://www.facebook.com/Ek0Clip/" target="_blank">Facebook</a><a href="#">TikTok</a></div>
+            <div class="footer-nav"><a href="#">Sobre Nós</a> | <a href="#">Política de Privacidade</a></div>
+            <p class="copyright">© 2025 EkoClip — o eco da nova geração da cultura angolana.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

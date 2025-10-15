@@ -251,3 +251,102 @@ form .btn-primary { width: 100%; padding: 15px; font-size: 1.1rem; }
 #news-feed-container .news-item small {
     color: #888;
 }
+/* ---- PÁGINA DA LIVRARIA ---- */
+.ebook-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.ebook-card { background: var(--color-card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+.ebook-card:hover { transform: translateY(-10px); }
+.ebook-cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.ebook-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.ebook-info h3 { font-family: var(--font-title); font-size: 1.5rem; color: var(--color-primary); }
+.ebook-description { color: #ccc; margin: 15px 0; flex-grow: 1; }
+.ebook-price { font-size: 1.8rem; font-weight: 700; color: var(--color-text); margin-bottom: 20px; }
+.ebook-info .btn-primary { text-align: center; width: 100%; }
+
+/* ---- PÁGINA DE OBRIGADO / INSTRUÇÕES ---- */
+.payment-instructions { max-width: 600px; margin: 40px auto; padding: 30px; background: var(--color-card-bg); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; }
+.payment-instructions h3, .payment-instructions h4 { color: var(--color-primary); font-family: var(--font-title); }
+.payment-instructions h4 { margin-top: 20px; }
+
+/* ---- LAYOUT DA PÁGINA DE PEDIDO ---- */
+.order-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Responsividade para telemóveis */
+@media (max-width: 768px) {
+    .order-layout {
+        grid-template-columns: 1fr; /* Coloca as colunas uma em cima da outra */
+    }
+}
+
+/* ---- ESTILO PARA O TOTAL A PAGAR NA PÁGINA DE PEDIDO ---- */
+.payment-total {
+    background-color: rgba(0, 255, 255, 0.1); /* Fundo azul translúcido */
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.payment-total strong {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+/* ---- BANNER DO CRONÓMETRO DE DESCONTO ---- */
+.discount-timer-banner {
+    background: linear-gradient(90deg, #ff4d4d, var(--color-primary));
+    color: var(--color-background);
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 700;
+    font-family: var(--font-title);
+    position: sticky;
+    top: 0;
+    z-index: 1001; /* Fica por cima do cabeçalho */
+}
+
+#countdown-timer {
+    background-color: rgba(0,0,0,0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* ---- ESTILOS DOS PREÇOS COM DESCONTO ---- */
+.price-container {
+    margin-bottom: 20px;
+}
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1.2rem;
+    display: none; /* Escondido por padrão */
+    margin-right: 10px;
+}
+.discount-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text); /* Cor normal por padrão */
+}
+
+/* QUANDO O DESCONTO ESTÁ ATIVO */
+.discount-active .original-price {
+    display: inline; /* Mostra o preço original riscado */
+}
+.discount-active .discount-price {
+    color: var(--color-primary); /* Destaca o preço com desconto */
+}
+.discount-active .ebook-info .btn-primary {
+    background-color: #ff4d4d; /* Cor do botão diferente com desconto */
+    border-color: #ff4d4d;
+}
+
+/* Esconde o preço normal no modo de desconto */
+.discount-active .ebook-price {
+    display: none;
+}
