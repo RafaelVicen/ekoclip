@@ -350,3 +350,50 @@ form .btn-primary { width: 100%; padding: 15px; font-size: 1.1rem; }
 .discount-active .ebook-price {
     display: none;
 }
+/* ---- BOTÃO DE WHATSAPP NA PÁGINA DE PEDIDO ---- */
+.payment-contact {
+    margin-top: 30px;
+    background-color: rgba(40, 217, 94, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+.whatsapp-button {
+    display: inline-block;
+    background-color: #28d95e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.whatsapp-button:hover {
+    background-color: #22b850;
+}
+/* ---- PÁGINA DE POLÍTICA DE PRIVACIDADE ---- */
+.policy-page {
+    max-width: 800px; /* Limita a largura para facilitar a leitura */
+}
+
+.policy-page h3 {
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.policy-page p, .policy-page ul {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.policy-page ul {
+    padding-left: 20px;
+}
+
+.policy-page li {
+    margin-bottom: 10px;
+}

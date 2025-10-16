@@ -21,7 +21,7 @@
                     <li><a href="index.html">Início</a></li>
                     <li><a href="podcasts.html">Podcasts</a></li>
                     <li><a href="musicas.html">Músicas</a></li>
-                    <li><a href="livros.html">Livraria</a></li>
+                    <li><a href="livros.html">Ebook</a></li>
                     <li><a href="contato.html">Eventos & Contato</a></li>
                 </ul>
             </nav>
@@ -30,34 +30,41 @@
             </button>
         </div>
         <div class="discount-timer-banner" id="discount-timer-banner" style="display: none;">
-    <div class="container">
-        🔥 Oferta especial por tempo limitado! O seu desconto termina em: <span id="countdown-timer">--:--:--</span>
-    </div>
-</div>
+            <div class="container">
+                🔥 Oferta especial por tempo limitado! O seu desconto termina em: <span id="countdown-timer">--:--:--</span>
+            </div>
+        </div>
     </header>
 
     <main class="page-content">
         <section class="container">
             <h2 class="page-title">Finalizar a Compra</h2>
-            <p class="page-subtitle">Siga os 2 passos abaixo para receber o seu ebook.</p>
+            <p class="page-subtitle">Siga os 2 passos abaixo para receber o seu ebook ou video.</p>
 
             <div class="order-layout">
                 <div class="payment-instructions">
                     <h3>Passo 1: Efetue o Pagamento</h3>
                     
                     <div class="payment-total" id="ebook-price-display">
-                        </div>
+                        <!-- O preço do ebook vai aparecer aqui automaticamente -->
+                    </div>
                     
                     <h4>Opção A: Multicaixa Express</h4>
-                    <p>Envie o valor do ebook para o número:<br><strong>939-973-451</strong></p>
+                    <p>Envie o valor do ebook ou video aula para o número:<br><strong>939-973-451</strong></p>
                     
                     <h4>Opção B: Transferência Bancária</h4>
-                    <p><strong>Banco:</strong> [Stander Bank]<br>
-                       <strong>IBAN:</strong> [AO06.0060.0123. 0100.5573.778 53]</p>
+                    <p><strong>Banco:</strong> Standard Bank<br>
+                       <strong>IBAN:</strong> AO06.0060.0123.0100.5573.7785.3</p>
                     
                     <hr style="margin: 30px 0; border-color: rgba(255,255,255,0.1);">
 
-                    <p><strong>Importante:</strong> Guarde o comprovativo do pagamento. Será necessário para validar a sua compra.</p>
+                    <p><strong>Importante:</strong> Guarde o comprovativo do pagamento. Após pagar, submeta os seus dados no Passo 2.</p>
+
+                    <!-- NOVO BLOCO DE CONTATO ADICIONADO -->
+                    <div class="payment-contact">
+                        <p>Dúvidas ou precisa de ajuda? Envie o comprovativo diretamente para o nosso WhatsApp:</p>
+                        <a href="https://wa.me/244954563373" target="_blank" class="whatsapp-button">Contactar via WhatsApp</a>
+                    </div>
                 </div>
 
                 <div class="contact-form-container">
@@ -70,6 +77,12 @@
                         <div class="form-group">
                             <label for="email">Seu Melhor Email (para receber o ebook)</label>
                             <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <!-- NOVO CAMPO DE TELEFONE ADICIONADO -->
+                        <div class="form-group">
+                            <label for="whatsapp">Seu Número de WhatsApp (para facilitar a entrega)</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" required>
                         </div>
                         
                         <input type="hidden" name="ebook_selecionado" id="ebook-selecionado">
@@ -85,7 +98,7 @@
     <footer class="main-footer">
         <div class="container">
             <div class="social-links"><a href="https://youtube.com/@ek0-clip?si=sifghtNcYBbmYhMi" target="_blank">YouTube</a><a href="https://www.instagram.com/ek0clip/" target="_blank">Instagram</a><a href="https://www.facebook.com/Ek0Clip/" target="_blank">Facebook</a><a href="#">TikTok</a></div>
-            <div class="footer-nav"><a href="#">Sobre Nós</a> | <a href="#">Política de Privacidade</a></div>
+            <div class="footer-nav"><a href="sobre-nos.html">Sobre Nós</a> | <a href="#">Política de Privacidade</a></div>
             <p class="copyright">© 2025 EkoClip — o eco da nova geração da cultura angolana.</p>
         </div>
     </footer>
