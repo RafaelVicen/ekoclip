@@ -251,7 +251,7 @@ form .btn-primary { width: 100%; padding: 15px; font-size: 1.1rem; }
 #news-feed-container .news-item small {
     color: #888;
 }
-/* ---- PÁGINA DA LIVRARIA ---- */
+/* ---- PÁGINA DO EBOOK ---- */
 .ebook-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .ebook-card { background: var(--color-card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; display: flex; flex-direction: column; }
 .ebook-card:hover { transform: translateY(-10px); }
