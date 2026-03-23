@@ -1,0 +1,21 @@
+{
+  "name": "EkoClip - Cultura Angolana",
+  "short_name": "EkoClip",
+  "description": "O eco da nova geração da cultura angolana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#00FFFF",
+  "icons": [
+    {
+      "src": "/assets/images/capa1.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/images/capa1.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
