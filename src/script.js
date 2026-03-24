@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.success) {
           // Sucesso - redirecionar para página de obrigado
-          window.location.href = '/obrigado.html';
+          window.location.href = 'obrigado.html';
         } else {
           // Erro de validação
           const errors = Array.isArray(response.data)

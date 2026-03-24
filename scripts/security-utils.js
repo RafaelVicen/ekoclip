@@ -150,6 +150,20 @@ function safeInnerHTML(element, html) {
   }
 }
 
+/**
+ * Reporta violação CSP (para relatórios de Content Security Policy)
+ * @param {Event} event - Evento de violação CSP
+ */
+function reportViolation(event) {
+  try {
+    if (event && event.detail) {
+      console.warn('CSP Violation:', event.detail);
+    }
+  } catch (e) {
+    console.warn('Erro ao reportar violação CSP:', e);
+  }
+}
+
 // Exporta funções para uso global
 window.SecurityUtils = {
   sanitizeHtml,
@@ -158,5 +172,6 @@ window.SecurityUtils = {
   sanitizeStorageData,
   isSecureUrl,
   generateCsrfToken,
-  safeInnerHTML
+  safeInnerHTML,
+  reportViolation
 };

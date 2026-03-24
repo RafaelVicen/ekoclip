@@ -101,8 +101,7 @@
                         </div>
                         
                         <input type="hidden" name="ebook_selecionado" id="ebook-selecionado">
-                        <input type="hidden" name="_next" value="https://ekoclip.netlify.app/obrigado-final.html">
-            <input type="hidden" name="_csrf" id="csrf_token" value="">
+                        <input type="hidden" name="_next" value="https://ekoclip.netlify.app/pages/obrigado.html">
             <input type="hidden" name="_csrf" id="csrf_token" value="">
 
                         <button type="submit" class="btn-primary">Submeter Pedido</button>
@@ -114,31 +113,18 @@
 
     <footer class="main-footer">
         <div class="container">
-            <div class="social-links"><a href="https://youtube.com/@ek0-clip?si=sifghtNcYBbmYhMi" target="_blank">YouTube</a><a href="https://www.instagram.com/ek0clip/" target="_blank">Instagram</a><a href="https://www.facebook.com/Ek0Clip/" target="_blank">Facebook</a><a href="#">TikTok</a></div>
-            <div class="footer-nav"><a href="sobre-nos.html">Sobre Nós</a> | <a href="#">Política de Privacidade</a></div>
+            <div class="social-links"><a href="https://youtube.com/@ek0-clip?si=sifghtNcYBbmYhMi" target="_blank">YouTube</a><a href="https://www.instagram.com/ek0clip/" target="_blank">Instagram</a><a href="https://www.facebook.com/Ek0Clip/" target="_blank">Facebook</a><a href="https://www.tiktok.com/@ek0clip">TikTok</a></div>
+            <div class="footer-nav"><a href="sobre-nos.html">Sobre Nós</a> | <a href="politica-privacidade.html">Política de Privacidade</a></div>
             <p class="copyright">© 2025 EkoClip — o eco da nova geração da cultura angolana.</p>
         </div>
     </footer>
 
     <script src="../src/script.js"></script>
             <script>
-              // Gera token CSRF quando o formulário é submetido
               document.addEventListener('DOMContentLoaded', function() {
                 const csrfToken = btoa(Math.random().toString()).substr(10, 16);
                 const csrfField = document.getElementById('csrf_token');
-                if (csrfField) {
-                  csrfField.value = csrfToken;
-                }
-              });
-            </script>
-            <script>
-              // Gera token CSRF quando o formulário é submetido
-              document.addEventListener('DOMContentLoaded', function() {
-                const csrfToken = btoa(Math.random().toString()).substr(10, 16);
-                const csrfField = document.getElementById('csrf_token');
-                if (csrfField) {
-                  csrfField.value = csrfToken;
-                }
+                if (csrfField) csrfField.value = csrfToken;
               });
             </script>
 </body>
