@@ -1,0 +1,110 @@
+<!-- Google Analytics & CRM Integration Script -->
+<!-- Este arquivo deve ser incluído no <head> de todas as páginas -->
+
+<!-- Google Tag Manager (Head) -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-N5PGM4G6');
+</script>
+
+<!-- Google Analytics 4 (GA4) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
+    page_path: window.location.pathname,
+    anonymize_ip: true
+  });
+</script>
+
+<!-- Google AdSense -->
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2985352769426087"
+  crossorigin="anonymous"
+></script>
+
+<!-- Google Search Console Verification (Opcional) -->
+<meta name="google-site-verification" content="SUA_VERIFICATION_ID_AQUI" />
+
+<!-- Tracking Events Script -->
+<script>
+  // Função para rastrear eventos personalizados
+  function trackEvent(eventName, eventData = {}) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, eventData);
+    } else if (typeof dataLayer !== 'undefined') {
+      dataLayer.push({
+        event: eventName,
+        ...eventData
+      });
+    }
+  }
+
+  // Rastrear clique em botão de exploração
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest(
+      '.btn-primary, .cta-button, [onclick*="enterProject"], [onclick*="navigateToProject"]'
+    );
+    if (btn) {
+      trackEvent('cta_click', {
+        button_text: btn.textContent.trim(),
+        page_location: window.location.href
+      });
+    }
+  });
+
+  // Rastrear tempo na página
+  let pageStartTime = new Date().getTime();
+  window.addEventListener('beforeunload', function () {
+    let pageEndTime = new Date().getTime();
+    let timeOnPage = Math.round((pageEndTime - pageStartTime) / 1000);
+
+    trackEvent('page_engagement', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+</script>
+
+<!-- Google CRM / Google Contacts Integration (Opcional) -->
+<!-- Para integração com Google Contacts / Lead Management -->
+<script>
+  // Função para enviar dados de lead para Google
+  function sendLeadToGoogle(leadData) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', {
+        value: leadData.value || 0,
+        currency: 'USD',
+        email: leadData.email || '',
+        phone: leadData.phone || ''
+      });
+    }
+  }
+</script>
+
+<!-- Noscript Fallback para Google Tag Manager -->
+<noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-N5PGM4G6"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden"
+  >
+  </iframe>
+</noscript>

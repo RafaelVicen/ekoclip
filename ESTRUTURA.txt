@@ -1,0 +1,83 @@
+📁 EKOCLIP - ESTRUTURA ORGANIZADA
+=====================================
+
+ekoclip-main/
+│
+├── 📁 pages/                          [✨ Todas as páginas HTML]
+│   ├── index.html                     (Homepage)
+│   ├── livros.html                    (Seção de Livros)
+│   ├── musicas.html                   (Seção de Músicas)
+│   ├── podcasts.html                  (Seção de Podcasts)
+│   ├── sobre-nos.html                 (Sobre Nós)
+│   ├── contato.html                   (Página de Contato)
+│   ├── politica-privacidade.html      (Política de Privacidade)
+│   ├── obrigado.html                  (Página de Agradecimento)
+│   ├── pedido.html                    (Página de Pedido)
+│   ├── template-download.html         (Template de Download)
+│   └── download-*.html                (Páginas de downloads de músicas)
+│       ├── download-agora.html
+│       ├── download-comeram-minha-banana.html
+│       ├── download-de-alma-na-paixao.html
+│       ├── download-ser-pobre.html
+│       └── download-ultimo-poeta.html
+│
+├── 📁 src/                            [💻 Código-fonte]
+│   ├── style.css                      (Estilos CSS)
+│   ├── script.js                      (JavaScript principal)
+│   └── sw.js                          (Service Worker - PWA)
+│
+├── 📁 assets/                         [🎨 Recursos estáticos]
+│   ├── images/                        (Imagens do site)
+│   └── audio/                         (Arquivos de áudio)
+│
+├── 📁 docs/                           [📚 Documentação]
+│   ├── README.md                      (Documentação principal)
+│   ├── README2.md                     (Documentação adicional)
+│   ├── DEPLOY_GUIDE.md                (Guia de deployment)
+│   ├── GUIDES_ATUALIZACAO.md          (Guia de atualização de referências)
+│   └── ORGANIZATION_PLAN.md           (Plano de organização)
+│
+├── 📁 deployment/                     [🚀 Configuração de Deploy]
+│   └── netlify.toml                   (Configuração Netlify)
+│
+├── 📁 netlify/                        [⚡ Funções serverless]
+│   └── functions/
+│       └── get-news.js
+│
+├── 📁 public/                         [📄 Arquivos públicos]
+│
+├── 📁 .github/                        [🔄 Workflows Git]
+│
+├── 📁 .git/                           [🔐 Repositório Git]
+│
+├── 📄 package.json                    (Dependências do projeto)
+├── 📄 manifest.json                   (PWA manifest)
+├── 📄 robots.txt                      (SEO)
+├── 📄 sitemap.xml                     (Mapa do site)
+├── 📄 ads.txt                         (Configuração de anúncios)
+└── 📄 .gitignore                      (Arquivos ignorados)
+
+=====================================
+
+✨ BENEFÍCIOS DA NOVA ESTRUTURA:
+
+✅ Melhor organização - Tipos de arquivos separados
+✅ Mais fácil de manter - Estrutura lógica e intuitiva
+✅ Escalável - Pronto para crescimento do projeto
+✅ Profissional - Segue padrões da indústria
+✅ Menos poluição na raiz - Projeto mais limpo
+
+=====================================
+
+⚠️  IMPORTANTE:
+
+Você PRECISA atualizar as referências de CSS e JS nos arquivos HTML!
+Veja o arquivo: docs/GUIDES_ATUALIZACAO.md
+
+Exemplo de mudança necessária:
+  <link rel="stylesheet" href="style.css">
+              ↓ MUDE PARA ↓
+  <link rel="stylesheet" href="../src/style.css">
+
+=====================================
+

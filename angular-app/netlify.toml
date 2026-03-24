@@ -1,0 +1,78 @@
+# EkoClip - Configuração Netlify para Angular
+# Este arquivo configura o deploy do projeto Angular no Netlify
+
+[build]
+  # Diretório do projeto Angular
+  base = "angular-app"
+
+  # Comando de build
+  command = "npm run build"
+
+  # Diretório de publicação (gerado pelo build)
+  publish = "dist/ekoclip-angular"
+
+# Redirects para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de segurança (mantém compatibilidade com _headers existente)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://ekoclip-api.netlify.app;"
+
+# Configuração de cache para assets estáticos
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Configuração de cache para arquivos JavaScript e CSS
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Funções serverless (se usar Netlify Functions)
+[functions]
+  directory = "../netlify/functions"
+
+# Variáveis de ambiente (exemplo)
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Build hooks (opcional)
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Configuração de preview deploy
+[context.deploy-preview]
+  command = "npm run build -- --configuration=development"
+
+[context.branch-deploy]
+  command = "npm run build -- --configuration=staging"
+
+[context.production]
+  command = "npm run build -- --configuration=production"

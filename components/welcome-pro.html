@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <!-- Google Analytics & CRM Integration -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N5PGM4G6');
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        page_path: window.location.pathname,
+        anonymize_ip: true
+      });
+    </script>
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2985352769426087"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EkoClip - Portal da cultura angolana. Notícias, podcasts, músicas e eventos culturais."
+    />
+    <meta
+      name="keywords"
+      content="EkoClip, Angola, cultura, música, podcasts, notícias, eventos"
+    />
+    <meta name="author" content="EkoClip" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EkoClip - Portal da Cultura Angolana" />
+    <meta
+      property="og:description"
+      content="O eco da nova geração da cultura angolana"
+    />
+    <meta
+      property="og:image"
+      content="https://ekoclip.netlify.app/assets/images/capa1.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ekoclip.netlify.app/components/welcome-pro.html"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="EkoClip - Portal da Cultura Angolana"
+    />
+    <meta
+      property="twitter:description"
+      content="O eco da nova geração da cultura angolana"
+    />
+    <meta
+      property="twitter:image"
+      content="https://ekoclip.netlify.app/assets/images/capa1.jpg"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json" />
+
+    <title>EkoClip - A Revolução Digital Angolana</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #ff6b6b;
+        --secondary: #ff8c42;
+        --tertiary: #ffd93d;
+        --dark: #1a1a2e;
+        --darker: #0f3460;
+        --light: #ffffff;
+        --glass: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+        color: var(--light);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Background effects */
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .gradient-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        mix-blend-mode: screen;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 107, 107, 0.15);
+        top: -100px;
+        right: -100px;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      .orb-2 {
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 140, 66, 0.15);
+        bottom: -50px;
+        left: 10%;
+        animation: float 25s ease-in-out infinite 5s;
+      }
+
+      .orb-3 {
+        width: 350px;
+        height: 350px;
+        background: rgba(255, 217, 61, 0.1);
+        top: 50%;
+        right: 5%;
+        animation: float 30s ease-in-out infinite 10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(30px, -30px);
+        }
+        50% {
+          transform: translate(-20px, 20px);
+        }
+        75% {
+          transform: translate(20px, 30px);
+        }
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background: rgba(26, 26, 46, 0.5);
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.5px;
+      }
+
+      nav a {
+        color: var(--light);
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        background: var(--glass);
+      }
+
+      /* Main sections */
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        max-width: 1000px;
+        width: 100%;
+      }
+
+      /* Hero section */
+      .hero {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        animation: slide-down 1s ease;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary),
+          var(--tertiary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      @keyframes slide-down {
+        from {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+        animation: fade-in 1s ease 0.2s backwards;
+        line-height: 1.6;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fade-in 1s ease 0.4s backwards;
+      }
+
+      .btn {
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+      }
+
+      .btn-secondary {
+        background: var(--glass);
+        color: white;
+        border: 1px solid var(--glass-border);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+      }
+
+      .btn:active {
+        transform: translateY(-1px);
+      }
+
+      /* Cards section */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .card {
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        animation: slide-up 0.8s ease forwards;
+        opacity: 0;
+      }
+
+      .card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .card:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card:hover {
+        background: rgba(255, 107, 107, 0.1);
+        border-color: var(--primary);
+        transform: translateY(-10px);
+      }
+
+      .card-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+      }
+
+      /* Statistics */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin: 60px 0;
+        text-align: center;
+      }
+
+      .stat {
+        animation: fade-in 1s ease forwards;
+        opacity: 0;
+      }
+
+      .stat:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+      .stat:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .stat:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+      .stat:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.1rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 40px;
+        text-align: center;
+        border-top: 1px solid var(--glass-border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+
+        section {
+          padding: 40px 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .cta-group {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      /* Loading spinner */
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 0.8s linear infinite;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+    <!-- Security Utils -->
+    <script src="../scripts/security-utils.js"></script>
+  </head>
+  <body>
+    <!-- Background -->
+    <div class="background">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">🎵 EkoClip</div>
+      <a href="#enter">Explorar Agora →</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Bem-vindo ao Futuro da Cultura Digital <span>Angolana</span></h1>
+        <p>
+          O eco da nova geração. Notícias, podcasts, músicas e eventos culturais
+          em um só lugar.
+        </p>
+
+        <div class="cta-group">
+          <button class="btn btn-primary" onclick="navigateToProject()">
+            Entrar no Projeto
+            <span class="spinner hidden" id="spinner"></span>
+          </button>
+          <a href="#features" class="btn btn-secondary">Saber Mais ↓</a>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Conteúdos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Utilizadores</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Disponibilidade</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Gratuito</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 60px">
+          <h2 style="font-size: 2.5rem; margin-bottom: 20px">
+            Funcionalidades Principais
+          </h2>
+          <p
+            style="
+              font-size: 1.1rem;
+              color: rgba(255, 255, 255, 0.7);
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Tudo que você precisa para estar conectado com a cultura angolana
+            moderna
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">📰</div>
+            <h3>Notícias em Alta</h3>
+            <p>
+              Fique sempre atualizado com as últimas notícias e destaques da
+              cultura angolana
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎙️</div>
+            <h3>Podcasts Premium</h3>
+            <p>
+              Ouça os melhores cortes e programas de podcasts angolanos em alta
+              qualidade
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎵</div>
+            <h3>Músicas Exclusivas</h3>
+            <p>
+              Descubra e baixe músicas dos artistas angolanos mais talentosos
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎬</div>
+            <h3>Vídeos Curados</h3>
+            <p>
+              Acesso a uma curadoria especial de vídeos de entretenimento e
+              documentários
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>Biblioteca Digital</h3>
+            <p>
+              Explore uma vasta coleção de livros e publicações de autores
+              angolanos
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎪</div>
+            <h3>Agenda de Eventos</h3>
+            <p>
+              Descubra os principais eventos culturais e artísticos acontecendo
+              agora
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action section -->
+    <section id="enter">
+      <div class="container" style="text-align: center">
+        <h2 style="font-size: 3rem; margin-bottom: 30px">
+          Pronto para Explorar?
+        </h2>
+        <p
+          style="
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+          "
+        >
+          Mergulhe no universo de conteúdo angolano de qualidade
+        </p>
+        <button
+          class="btn btn-primary"
+          style="padding: 20px 60px; font-size: 1.2rem"
+          onclick="navigateToProject()"
+        >
+          Acessar Projeto Completo
+          <span class="spinner hidden" id="spinner2"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p style="margin-bottom: 20px">
+        © 2026 EkoClip - Todos os direitos reservados
+      </p>
+      <div class="social-icons">
+        <a href="#" class="social-icon" title="Facebook">f</a>
+        <a href="#" class="social-icon" title="Instagram">📷</a>
+        <a href="#" class="social-icon" title="Twitter">𝕏</a>
+        <a href="#" class="social-icon" title="YouTube">▶</a>
+      </div>
+      <p
+        style="
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 0.9rem;
+          margin-top: 20px;
+        "
+      >
+        Feito com ❤️ para a cultura angolana
+      </p>
+    </footer>
+
+    <script>
+      function navigateToProject() {
+        const button = event.target.closest('.btn');
+        const spinner = button.querySelector('.spinner');
+
+        if (spinner) {
+          spinner.classList.remove('hidden');
+        }
+        button.disabled = true;
+
+        // Smooth fade out transition
+        setTimeout(() => {
+          document.body.style.transition = 'opacity 0.8s ease-out';
+          document.body.style.opacity = '0';
+
+          setTimeout(() => {
+            window.location.href = './pages/index.html';
+          }, 800);
+        }, 1000);
+      }
+
+      // Keyboard support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.ctrlKey) {
+          navigateToProject();
+        }
+      });
+
+      // Parallax effect on scroll
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const orbs = document.querySelectorAll('.gradient-orb');
+
+        orbs.forEach((orb, index) => {
+          orb.style.transform = `translateY(${scrolled * (0.3 * (index + 1))}px)`;
+        });
+      });
+
+      // Animate elements on scroll into view
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.card, .stat').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

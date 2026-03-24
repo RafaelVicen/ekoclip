@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="utf-8" />
+    <title>EkoClip - O Eco da Nova Geração da Cultura Angolana</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="EkoClip - O eco da nova geração da cultura angolana. Notícias, podcasts, músicas e eventos culturais de Angola."
+    />
+    <meta
+      property="og:title"
+      content="EkoClip — O Eco da Nova Geração da Cultura Angolana"
+    />
+    <meta
+      property="og:description"
+      content="O epicentro do entretenimento, cultura e mídia digital angolana."
+    />
+    <meta
+      property="og:image"
+      content="https://ekoclip.netlify.app/assets/images/capa1.jpg"
+    />
+    <meta property="og:url" content="https://ekoclip.netlify.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        page_path: window.location.pathname,
+        anonymize_ip: true
+      });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googlesyndication.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N5PGM4G6');
+    </script>
+
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://ekoclip-api.netlify.app;"
+    />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta
+      http-equiv="Referrer-Policy"
+      content="strict-origin-when-cross-origin"
+    />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <noscript>
+      <iframe
+        src="https://www.googlesyndication.com/ns.html?id=GTM-N5PGM4G6"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      >
+      </iframe>
+    </noscript>
+    <app-root></app-root>
+  </body>
+</html>
