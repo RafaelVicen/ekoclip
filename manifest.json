@@ -25,9 +25,9 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/images/favicon.ico",
+      "src": "/assets/images/capa1.jpg",
       "sizes": "32x32",
-      "type": "image/x-icon",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ],
@@ -47,7 +47,7 @@
       "url": "/pages/index.html",
       "icons": [
         {
-          "src": "/assets/images/favicon.ico",
+          "src": "/assets/images/capa1.jpg",
           "sizes": "32x32"
         }
       ]
@@ -59,7 +59,7 @@
       "url": "/pages/contato.html",
       "icons": [
         {
-          "src": "/assets/images/favicon.ico",
+          "src": "/assets/images/capa1.jpg",
           "sizes": "32x32"
         }
       ]
