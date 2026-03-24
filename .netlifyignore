@@ -1,0 +1,16 @@
+# Excluir backup do deploy (evita _headers inválido com X-Powered-By)
+backup-*/
+backup-*
+
+# Excluir pastas de desenvolvimento
+node_modules/
+.git/
+angular-app/node_modules/
+angular-app/dist/
+
+# Excluir arquivos de desenvolvimento
+*.log
+.env
+.env.*
+*.md
+!README.md

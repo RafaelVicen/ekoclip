@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       newsContainer.textContent = 'A carregar últimas notícias...';
     }
 
-    // Pede as notícias ao nosso "robô" (a Função Netlify)
-    fetch('/.netlify/functions/get-news')
+    // Pede as notícias à Função Netlify (URL absoluta para funcionar em /pages/)
+    const newsApiUrl = `${window.location.origin}/.netlify/functions/get-news`;
+    fetch(newsApiUrl)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -123,33 +124,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       })
       .catch((error) => {
-        // Se der erro, verifica se estamos em ambiente de desenvolvimento
-        const isDevelopment =
-          window.location.hostname === 'localhost' ||
-          window.location.hostname === '127.0.0.1';
-
-        if (isDevelopment) {
-          if (window.SecurityUtils && window.SecurityUtils.safeInnerHTML) {
-            window.SecurityUtils.safeInnerHTML(
-              newsContainer,
-              '<p style="color: #ffaa00; font-size: 0.9rem;">⚠️ As notícias só funcionam quando o site está deployado no Netlify. Estás em ambiente de desenvolvimento.</p>'
-            );
-          } else {
-            newsContainer.textContent =
-              '⚠️ As notícias só funcionam quando o site está deployado no Netlify. Estás em ambiente de desenvolvimento.';
-          }
-        } else {
-          if (window.SecurityUtils && window.SecurityUtils.safeInnerHTML) {
-            window.SecurityUtils.safeInnerHTML(
-              newsContainer,
-              '<p>Não foi possível carregar as notícias de momento. Tenta novamente mais tarde.</p>'
-            );
-          } else {
-            newsContainer.textContent =
-              'Não foi possível carregar as notícias de momento. Tenta novamente mais tarde.';
-          }
-        }
         console.error('Erro ao buscar notícias:', error);
+        // Fallback: mostra notícias estáticas quando a API falha (dev ou feeds em baixo)
+        const fallbackNews = [
+          { title: 'Cultura angolana em destaque', link: 'https://www.bbc.com/portuguese', contentSnippet: 'A música e a arte angolana continuam a conquistar o mundo. Descobre os últimos lançamentos e eventos.', isoDate: new Date().toISOString() },
+          { title: 'Podcasts: a nova onda do entretenimento', link: 'https://www.bbc.com/portuguese', contentSnippet: 'Os podcasts ganham cada vez mais ouvintes em Angola e na diáspora.', isoDate: new Date().toISOString() },
+          { title: 'Eventos culturais em Luanda', link: 'https://www.bbc.com/portuguese', contentSnippet: 'Confere a agenda de concertos, exposições e festivais na capital.', isoDate: new Date().toISOString() },
+          { title: 'Novos talentos da música angolana', link: 'https://www.bbc.com/portuguese', contentSnippet: 'Conhece os artistas que estão a fazer barulho na cena musical.', isoDate: new Date().toISOString() },
+          { title: 'EkoClip: o eco da cultura angolana', link: 'index.html', contentSnippet: 'O teu espaço para notícias, músicas, podcasts e eventos. Acompanha-nos!', isoDate: new Date().toISOString() }
+        ];
+        while (newsContainer.firstChild) newsContainer.removeChild(newsContainer.firstChild);
+        fallbackNews.forEach((item) => {
+          const div = document.createElement('div');
+          div.className = 'news-item';
+          const safeTitle = (window.SecurityUtils ? window.SecurityUtils.sanitizeText(item.title) : item.title);
+          const safeContent = (window.SecurityUtils ? window.SecurityUtils.sanitizeText(item.contentSnippet) : item.contentSnippet);
+          const safeLink = item.link && (item.link.startsWith('http') || item.link.startsWith('/')) ? item.link : (item.link || 'https://www.bbc.com/portuguese');
+          const dateStr = item.isoDate ? new Date(item.isoDate).toLocaleDateString('pt-AO') : 'Recente';
+          div.innerHTML = `<h3><a href="${safeLink}" target="_blank" rel="noopener noreferrer">${safeTitle}</a></h3><p>${safeContent}</p><small>${dateStr}</small>`;
+          newsContainer.appendChild(div);
+        });
       });
   }
 });
